@@ -2,6 +2,8 @@
 
 Colab Notebook: https://colab.research.google.com/drive/1B0kaiAPHt1n9SKDSmUE6asFmQVxfC3JS?usp=sharing
 
+![](result.jpg)
+
 - 🤗 **Try the pretrained model out [here](https://huggingface.co/spaces/tloen/alpaca-lora), courtesy of a GPU grant from Huggingface!**
 - Users have created a Discord server for discussion and support [here](https://discord.gg/prbq284xX5)
 - 4/14: Chansung Park's GPT4-Alpaca adapters: https://github.com/tloen/alpaca-lora/issues/340
