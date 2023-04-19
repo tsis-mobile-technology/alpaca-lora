@@ -91,7 +91,8 @@ def main(
         top_p=0.75,
         top_k=40,
         num_beams=4,
-        max_new_tokens=128,
+        max_new_tokens=256,
+        repetition_penalty=4.8,
         stream_output=False,
         **kwargs,
     ):
@@ -103,6 +104,7 @@ def main(
             top_p=top_p,
             top_k=top_k,
             num_beams=num_beams,
+            repetition_penalty=float(repetition_penalty),
             **kwargs,
         )
 
@@ -168,10 +170,10 @@ def main(
             ),
             gr.components.Textbox(lines=2, label="Input", placeholder="none"),
             gr.components.Slider(
-                minimum=0, maximum=1, value=0.1, label="Temperature"
+                minimum=0, maximum=1, value=0.7, label="Temperature"
             ),
             gr.components.Slider(
-                minimum=0, maximum=1, value=0.75, label="Top p"
+                minimum=0, maximum=1, value=0.1, label="Top p"
             ),
             gr.components.Slider(
                 minimum=0, maximum=100, step=1, value=40, label="Top k"
@@ -180,9 +182,12 @@ def main(
                 minimum=1, maximum=4, step=1, value=4, label="Beams"
             ),
             gr.components.Slider(
-                minimum=1, maximum=2000, step=1, value=128, label="Max tokens"
+                minimum=1, maximum=2000, step=1, value=256, label="Max tokens"
             ),
-            gr.components.Checkbox(label="Stream output"),
+            gr.components.Slider(
+                minimum=1., maximum=5., step=0.1, value=4.8, label="Repetation penalty"
+            ),
+            gr.components.Checkbox(label="Stream output", value=True),
         ],
         outputs=[
             gr.inputs.Textbox(
